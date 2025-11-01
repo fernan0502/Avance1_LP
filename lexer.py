@@ -12,40 +12,49 @@ import os
 import subprocess
 
 # ------------------------------------------------------------
-# 1 Definición de los tokens 
+# Definición de los tokens 
 # ------------------------------------------------------------
 tokens = [
     # ---------------- Aporte Derian ----------------
-    'IDENTIFICADOR',
-    'NUMERO',
-    'CADENA',
-    'ASIGNACION',
-    'SUMA',
-    'RESTA',
-    'MULT',]
+    'IDENTIFICADOR', 'NUMERO', 'CADENA',
+    'ASIGNACION', 'SUMA', 'RESTA', 'MULT', 'DIV',
+    'PAREN_IZQ', 'PAREN_DER', 'LLAVE_IZQ', 'LLAVE_DER',
+    'PUNTOCOMA', 'PUNTO', 'MODULO', 'POTENCIA',
+    'MENOR', 'COMA', 'DOSPUNTOS']
     # ---------------- Fin Derian -------------------
 reservadas = {
     # -------- Aporte Derian --------
-    'if': 'IF',
-    'else': 'ELSE',
-    'for': 'FOR',
-    'while': 'WHILE',
-    'fn': 'FUNCTION',}
+    'if': 'IF', 'else': 'ELSE', 'for': 'FOR', 'while': 'WHILE',
+    'fn': 'FUNCTION', 'return': 'RETURN', 'let': 'VAR',
+    'const': 'CONST', 'true': 'TRUE', 'false': 'FALSE',
+    'break': 'BREAK', 'print': 'PRINT'}
 
 tokens = tokens + list(reservadas.values())
 
 # ------------------------------------------------------------
-# 2 Expresiones regulares para tokens simples
+# Expresiones regulares para tokens simples
 # ------------------------------------------------------------
 # -------- Aporte Derian --------
 t_ASIGNACION = r'='
 t_SUMA       = r'\+'
 t_RESTA      = r'-'
 t_MULT       = r'\*'
+t_DIV        = r'/'
+t_PAREN_IZQ  = r'\('
+t_PAREN_DER  = r'\)'
+t_LLAVE_IZQ  = r'\{'
+t_LLAVE_DER  = r'\}'
+t_PUNTOCOMA  = r';'
+t_PUNTO      = r'\.'
+t_MODULO     = r'%'
+t_POTENCIA   = r'\^'
+t_MENOR      = r'<'
+t_COMA       = r','
+t_DOSPUNTOS  = r':'
 # -------- Fin Derian --------
 
 # ------------------------------------------------------------
-# 3 Reglas con acciones
+# Reglas con acciones
 # ------------------------------------------------------------
 # -------- Aporte Derian --------
 def t_IDENTIFICADOR(t):
@@ -61,10 +70,32 @@ def t_NUMERO(t):
 def t_CADENA(t):
     r'\"([^\\\n]|(\\.))*?\"'
     return t
+
+def t_COMENTARIO_LINEA(t):
+    r'//.*'
+    pass
+
+def t_COMENTARIO_BLOQUE(t):
+    r'/\*(.|\n)*?\*/'
+    t.lexer.lineno += t.value.count('\n')
+    pass
+
+t_ignore = ' \t'
+
+def t_nueva_linea(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
+
+def t_error(t):
+    mensaje = f"❌ Error léxico: carácter no reconocido '{t.value[0]}' en línea {t.lineno}"
+    print(mensaje)
+    log_token(mensaje)
+    t.lexer.skip(1)
+
 # -------- Fin Derian --------
 
 # ------------------------------------------------------------
-# 4 Función para obtener el usuario de Git automáticamente
+#  Función para obtener el usuario de Git automáticamente
 # ------------------------------------------------------------
 def get_git_user():
     try:
@@ -77,7 +108,7 @@ def get_git_user():
     return os.getenv("USER") or os.getenv("USERNAME") or "usuarioGit"
 
 # ------------------------------------------------------------
-# 5 Función para guardar logs
+#  Función para guardar logs
 # ------------------------------------------------------------
 def log_token(mensaje):
     usuario = get_git_user()  # obtiene automáticamente el usuario de Git
@@ -89,12 +120,12 @@ def log_token(mensaje):
         f.write(mensaje + "\n")
 
 # ------------------------------------------------------------
-# 6 Construcción del lexer
+#  Construcción del lexer
 # ------------------------------------------------------------
 lexer = lex.lex()
 
 # ------------------------------------------------------------
-# 7 Ejecución manual del analizador
+#  Ejecución manual del analizador
 # ------------------------------------------------------------
 if __name__ == "__main__":
     print("Analizador léxico iniciado.\n")

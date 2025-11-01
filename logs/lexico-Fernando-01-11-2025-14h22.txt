@@ -1,0 +1,60 @@
+Línea 1: FUNCTION -> fn
+❌ Error léxico: carácter no reconocido ' ' en línea 1
+Línea 1: IDENTIFICADOR -> main
+❌ Error léxico: carácter no reconocido '(' en línea 1
+❌ Error léxico: carácter no reconocido ')' en línea 1
+❌ Error léxico: carácter no reconocido ' ' en línea 1
+❌ Error léxico: carácter no reconocido '{' en línea 1
+❌ Error léxico: carácter no reconocido ' ' en línea 2
+❌ Error léxico: carácter no reconocido ' ' en línea 2
+❌ Error léxico: carácter no reconocido ' ' en línea 2
+❌ Error léxico: carácter no reconocido ' ' en línea 2
+Línea 2: IDENTIFICADOR -> let
+❌ Error léxico: carácter no reconocido ' ' en línea 2
+Línea 2: IDENTIFICADOR -> x
+❌ Error léxico: carácter no reconocido ' ' en línea 2
+Línea 2: ASIGNACION -> =
+❌ Error léxico: carácter no reconocido ' ' en línea 2
+Línea 2: NUMERO -> 10
+❌ Error léxico: carácter no reconocido ';' en línea 2
+❌ Error léxico: carácter no reconocido ' ' en línea 3
+❌ Error léxico: carácter no reconocido ' ' en línea 3
+❌ Error léxico: carácter no reconocido ' ' en línea 3
+❌ Error léxico: carácter no reconocido ' ' en línea 3
+Línea 3: IDENTIFICADOR -> let
+❌ Error léxico: carácter no reconocido ' ' en línea 3
+Línea 3: IDENTIFICADOR -> y
+❌ Error léxico: carácter no reconocido ' ' en línea 3
+Línea 3: ASIGNACION -> =
+❌ Error léxico: carácter no reconocido ' ' en línea 3
+Línea 3: NUMERO -> 20.5
+❌ Error léxico: carácter no reconocido ';' en línea 3
+❌ Error léxico: carácter no reconocido ' ' en línea 4
+❌ Error léxico: carácter no reconocido ' ' en línea 4
+❌ Error léxico: carácter no reconocido ' ' en línea 4
+❌ Error léxico: carácter no reconocido ' ' en línea 4
+Línea 4: IDENTIFICADOR -> let
+❌ Error léxico: carácter no reconocido ' ' en línea 4
+Línea 4: IDENTIFICADOR -> z
+❌ Error léxico: carácter no reconocido ' ' en línea 4
+Línea 4: ASIGNACION -> =
+❌ Error léxico: carácter no reconocido ' ' en línea 4
+Línea 4: NUMERO -> 3
+❌ Error léxico: carácter no reconocido ';' en línea 4
+❌ Error léxico: carácter no reconocido ' ' en línea 6
+❌ Error léxico: carácter no reconocido ' ' en línea 6
+❌ Error léxico: carácter no reconocido ' ' en línea 6
+❌ Error léxico: carácter no reconocido ' ' en línea 6
+Línea 6: IDENTIFICADOR -> let
+❌ Error léxico: carácter no reconocido ' ' en línea 6
+Línea 6: IDENTIFICADOR -> resultado
+❌ Error léxico: carácter no reconocido ' ' en línea 6
+Línea 6: ASIGNACION -> =
+❌ Error léxico: carácter no reconocido ' ' en línea 6
+Línea 6: IDENTIFICADOR -> x
+❌ Error léxico: carácter no reconocido ' ' en línea 6
+Línea 6: SUMA -> +
+❌ Error léxico: carácter no reconocido ' ' en línea 6
+Línea 6: IDENTIFICADOR -> z
+❌ Error léxico: carácter no reconocido ';' en línea 6
+❌ Error léxico: carácter no reconocido '}' en línea 7
