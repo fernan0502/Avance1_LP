@@ -15,15 +15,15 @@ import subprocess
 # Definición de los tokens 
 # ------------------------------------------------------------
 tokens = [
-    # ---------------- Aporte Derian ----------------
+    # ---------------- Aporte Fernando ----------------
     'IDENTIFICADOR', 'NUMERO', 'CADENA',
     'ASIGNACION', 'SUMA', 'RESTA', 'MULT', 'DIV',
     'PAREN_IZQ', 'PAREN_DER', 'LLAVE_IZQ', 'LLAVE_DER',
     'PUNTOCOMA', 'PUNTO', 'MODULO', 'POTENCIA',
     'MENOR', 'COMA', 'DOSPUNTOS']
-    # ---------------- Fin Derian -------------------
+    # ---------------- Fin Fernando -------------------
 reservadas = {
-    # -------- Aporte Derian --------
+    # -------- Aporte Fernando --------
     'if': 'IF', 'else': 'ELSE', 'for': 'FOR', 'while': 'WHILE',
     'fn': 'FUNCTION', 'return': 'RETURN', 'let': 'VAR',
     'const': 'CONST', 'true': 'TRUE', 'false': 'FALSE',
@@ -34,7 +34,7 @@ tokens = tokens + list(reservadas.values())
 # ------------------------------------------------------------
 # Expresiones regulares para tokens simples
 # ------------------------------------------------------------
-# -------- Aporte Derian --------
+# -------- Aporte Fernando --------
 t_ASIGNACION = r'='
 t_SUMA       = r'\+'
 t_RESTA      = r'-'
@@ -51,12 +51,12 @@ t_POTENCIA   = r'\^'
 t_MENOR      = r'<'
 t_COMA       = r','
 t_DOSPUNTOS  = r':'
-# -------- Fin Derian --------
+# -------- Fin Fernando --------
 
 # ------------------------------------------------------------
 # Reglas con acciones
 # ------------------------------------------------------------
-# -------- Aporte Derian --------
+# -------- Aporte Fernando --------
 def t_IDENTIFICADOR(t):
     r'[a-zA-ZáéíóúÁÉÍÓÚñÑ_][a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_]*'
     t.type = reservadas.get(t.value, 'IDENTIFICADOR')
@@ -92,7 +92,7 @@ def t_error(t):
     log_token(mensaje)
     t.lexer.skip(1)
 
-# -------- Fin Derian --------
+# -------- Fin Fernando --------
 
 # ------------------------------------------------------------
 #  Función para obtener el usuario de Git automáticamente
