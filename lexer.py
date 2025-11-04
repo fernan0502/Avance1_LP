@@ -22,20 +22,23 @@ tokens = [
     'ASIGNACION', 'SUMA', 'RESTA', 'MULT', 'DIV',
     'PAREN_IZQ', 'PAREN_DER', 'LLAVE_IZQ', 'LLAVE_DER',
     'PUNTOCOMA', 'PUNTO', 'MODULO', 'POTENCIA',
-    'MENOR', 'COMA', 'DOSPUNTOS', 
+    'MENOR', 'COMA', 'DOSPUNTOS', 'CARACTER', 'BOOLEANO',
     # Comentarios
     'COMENTARIO_LINEA', 'COMENTARIO_BLOQUE',
     #Operadores Relacionales y Lógicos
     'MAYOR', 'MAYOR_IGUAL', 'MENOR_IGUAL', 'IGUAL', 'DIFERENTE',
-    'AND', 'OR', 'NOT'
+    'AND', 'OR', 'NOT',
+    #Otros simbolos
+    'CORCHETE_IZQ', 'CORCHETE_DER',  'FLECHA', 'INTERROGACION'
     ]
     # ---------------- Fin Fernando, Sebastian -------------------
 reservadas = {
-    # -------- Aporte Fernando --------
+    # -------- Aporte Fernando, Sebastian --------
     'if': 'IF', 'else': 'ELSE', 'for': 'FOR', 'while': 'WHILE',
     'fn': 'FUNCTION', 'return': 'RETURN', 'let': 'VAR',
     'const': 'CONST', 'true': 'TRUE', 'false': 'FALSE',
-    'break': 'BREAK', 'print': 'PRINT'}
+    'break': 'BREAK', 'print': 'PRINT', 'input': 'INPUT', 
+    'continue': 'CONTINUE'}
 
 tokens = tokens + list(reservadas.values())
 
@@ -71,6 +74,10 @@ t_DIFERENTE    = r'!='
 t_AND          = r'&&'
 t_OR           = r'\|\|'
 t_NOT          = r'!'
+t_CORCHETE_IZQ = r'\['
+t_CORCHETE_DER = r'\]'
+t_FLECHA       = r'->'
+t_INTERROGACION= r'\?'
 
 #--------- Fin Sebastian --------
 # ------------------------------------------------------------
@@ -112,6 +119,13 @@ def t_error(t):
 
 # -------- Fin Fernando --------
 # ------------------------------------------------------------
+def t_CARACTER(t):
+    r"\'([^\\\n]|\\.)?\'"
+    return t
+
+def t_BOOLEANO(t):
+    r'\b(true|false)\b'
+    return t
 # -------- Fin Aporte -------------
 
 # ------------------------------------------------------------
