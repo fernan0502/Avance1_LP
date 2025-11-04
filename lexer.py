@@ -29,16 +29,53 @@ tokens = [
     'MAYOR', 'MAYOR_IGUAL', 'MENOR_IGUAL', 'IGUAL', 'DIFERENTE',
     'AND', 'OR', 'NOT',
     #Otros simbolos
-    'CORCHETE_IZQ', 'CORCHETE_DER',  'FLECHA', 'INTERROGACION'
-    ]
+    'CORCHETE_IZQ', 'CORCHETE_DER',  'FLECHA', 'INTERROGACION',
+
     # ---------------- Fin Fernando, Sebastian -------------------
+
+    # ---------------- Aporte Carlos ----------------
+    # Operadores bit a bit
+    'BIT_AND',         # &
+    'BIT_OR',          # |
+    'BIT_XOR',         # ^
+    'BIT_NOT',         # ~
+    'DESPLAZAR_IZQ',   # <<
+    'DESPLAZAR_DER',   # >>
+
+    # Asignación compuesta
+    'MAS_IGUAL',       # +=
+    'MENOS_IGUAL',     # -=
+    'POR_IGUAL',       # *=
+    'DIV_IGUAL',       # /=
+    'MOD_IGUAL',       # %=
+    'AND_IGUAL',       # &=
+    'OR_IGUAL',        # |=
+    'XOR_IGUAL',       # ^=
+    'DESP_IZQ_IGUAL',  # <<=
+    'DESP_DER_IGUAL',  # >>=
+    # ---------------- Fin Carlos ----------------
+
+    ]
+    
 reservadas = {
     # -------- Aporte Fernando, Sebastian --------
     'if': 'IF', 'else': 'ELSE', 'for': 'FOR', 'while': 'WHILE',
     'fn': 'FUNCTION', 'return': 'RETURN', 'let': 'VAR',
     'const': 'CONST', 'true': 'TRUE', 'false': 'FALSE',
     'break': 'BREAK', 'print': 'PRINT', 'input': 'INPUT', 
-    'continue': 'CONTINUE'}
+    'continue': 'CONTINUE', 
+     # ---------------- Fin Fernando, Sebastian -------------------
+    
+     # ---------------- Aporte Carlos ----------------
+    'let': 'LET', 'mut': 'MUT', 'fn': 'FN', 'struct': 'STRUCT', 'enum': 'ENUM',
+    'impl': 'IMPL', 'trait': 'TRAIT', 'mod': 'MOD', 'use': 'USE',
+    'pub': 'PUB', 'self': 'SELF', 'super': 'SUPER', 'as': 'AS', 'const': 'CONST',
+    'static': 'STATIC', 'match': 'MATCH', 'loop': 'LOOP', 'in': 'IN',
+    'where': 'WHERE', 'move': 'MOVE', 'ref': 'REF', 'type': 'TYPE',
+    'crate': 'CRATE', 'unsafe': 'UNSAFE', 'async': 'ASYNC', 'await': 'AWAIT',
+    'dyn': 'DYN'
+    }
+    # ---------------- Fin Carlos ----------------
 
 tokens = tokens + list(reservadas.values())
 
@@ -80,6 +117,30 @@ t_FLECHA       = r'->'
 t_INTERROGACION= r'\?'
 
 #--------- Fin Sebastian --------
+
+# -------- Aporte Carlos --------
+# Asignación compuesta (más largos primero)
+t_MAS_IGUAL      = r'\+='
+t_MENOS_IGUAL    = r'-='
+t_POR_IGUAL      = r'\*='
+t_DIV_IGUAL      = r'/='
+t_MOD_IGUAL      = r'%='
+t_AND_IGUAL      = r'&='
+t_OR_IGUAL       = r'\|='
+t_XOR_IGUAL      = r'\^='
+t_DESP_IZQ_IGUAL = r'<<='
+t_DESP_DER_IGUAL = r'>>='
+
+# Operadores bit a bit
+t_DESPLAZAR_IZQ  = r'<<'
+t_DESPLAZAR_DER  = r'>>'
+t_BIT_AND        = r'&'
+t_BIT_OR         = r'\|'
+t_BIT_XOR        = r'\^'
+t_BIT_NOT        = r'~'
+# -------- Fin Carlos --------
+
+
 # ------------------------------------------------------------
 # Reglas con acciones
 # ------------------------------------------------------------
