@@ -6,6 +6,7 @@
 # Integrantes:
 #   Derian Baque Choez (fernan0502)
 #   Sebastian Holguin (Sebhvarg)
+#   Carlos Ronquillo (carrbrus)
 # ------------------------------------------------------------
 import ply.lex as lex
 import datetime
@@ -27,7 +28,7 @@ tokens = [
     'COMENTARIO_LINEA', 'COMENTARIO_BLOQUE',
     #Operadores Relacionales y Lógicos
     'MAYOR', 'MAYOR_IGUAL', 'MENOR_IGUAL', 'IGUAL', 'DIFERENTE',
-    'AND', 'OR', 'NOT',
+    'Y', 'O', 'NO', 'FLECHA',
     #Otros simbolos
     'CORCHETE_IZQ', 'CORCHETE_DER',  'FLECHA', 'INTERROGACION',
 
@@ -125,9 +126,9 @@ t_MENOS_IGUAL    = r'-='
 t_POR_IGUAL      = r'\*='
 t_DIV_IGUAL      = r'/='
 t_MOD_IGUAL      = r'%='
-t_AND_IGUAL      = r'&='
-t_OR_IGUAL       = r'\|='
-t_XOR_IGUAL      = r'\^='
+t_Y_IGUAL      = r'&='
+t_O_IGUAL       = r'\|='
+t_XO_IGUAL      = r'\^='
 t_DESP_IZQ_IGUAL = r'<<='
 t_DESP_DER_IGUAL = r'>>='
 
