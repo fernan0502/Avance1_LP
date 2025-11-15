@@ -20,14 +20,15 @@ import sys
 tokens = [
     # ---------------- Aporte Fernando, Sebastian ----------------
     'IDENTIFICADOR', 'ENTERO', 'CADENA', 'FLOTANTE',
-    'ASIGNACION', 'SUMA', 'RESTA', 'MULT', 'DIV',
+    'IGUAL', 'SUMA', 'RESTA', 'MULT', 'DIV',
     'PAREN_IZQ', 'PAREN_DER', 'LLAVE_IZQ', 'LLAVE_DER',
     'PUNTOCOMA', 'PUNTO', 'POTENCIA',
     'MENOR', 'COMA', 'DOSPUNTOS', 'CARACTER', 'BOOLEANO',
+    'IGUALDOBLE',
     # Comentarios
     'COMENTARIO_LINEA', 'COMENTARIO_BLOQUE',
     #Operadores Relacionales y Lógicos
-    'MAYOR', 'MAYOR_IGUAL', 'MENOR_IGUAL', 'IGUAL', 'DIFERENTE',
+    'MAYOR', 'MAYOR_IGUAL', 'MENOR_IGUAL', 'DIFERENTE',
     'Y', 'O', 'NO', 
     #Otros simbolos
     'CORCHETE_IZQ', 'CORCHETE_DER',  'FLECHA', 'INTERROGACION',
@@ -85,7 +86,7 @@ tokens = tokens + list(reservadas.values())
 # Expresiones regulares para tokens simples
 # ------------------------------------------------------------
 # -------- Aporte Fernando --------
-t_ASIGNACION = r'='
+t_IGUAL = r'='
 t_SUMA       = r'\+'
 t_RESTA      = r'-'
 t_MULT       = r'\*'
@@ -108,7 +109,7 @@ t_DOSPUNTOS  = r':'
 t_MAYOR      = r'>'
 t_MAYOR_IGUAL  = r'>='
 t_MENOR_IGUAL  = r'<='
-t_IGUAL        = r'=='
+t_IGUALDOBLE   = r'=='
 t_DIFERENTE    = r'!='
 t_Y          = r'&&'
 t_O           = r'\|\|'
