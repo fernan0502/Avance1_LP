@@ -65,7 +65,7 @@ reservadas = {
     'fn': 'FUNCTION', 'return': 'RETURN', 'let': 'VAR',
     'const': 'CONST', 'true': 'TRUE', 'false': 'FALSE',
     'break': 'BREAK', 'print': 'PRINT', 'input': 'INPUT', 
-    'continue': 'CONTINUE', 
+    'continue': 'CONTINUE', 'println': 'PRINTLN', 
      # ---------------- Fin Fernando, Sebastian -------------------
     
      # ---------------- Aporte Carlos ----------------
@@ -75,7 +75,8 @@ reservadas = {
     'static': 'STATIC', 'match': 'MATCH', 'loop': 'LOOP', 'in': 'IN',
     'where': 'WHERE', 'move': 'MOVE', 'ref': 'REF', 'type': 'TYPE',
     'crate': 'CRATE', 'unsafe': 'UNSAFE', 'async': 'ASYNC', 'await': 'AWAIT',
-    'dyn': 'DYN'
+    'dyn': 'DYN', 'self': 'SELF', 'super': 'SUPER', 'as': 'AS', 'class': 'CLASS',
+    'struct': 'STRUCT',
     }
     # ---------------- Fin Carlos ----------------
 
