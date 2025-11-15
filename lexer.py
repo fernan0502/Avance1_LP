@@ -35,10 +35,10 @@ tokens = [
 
     # ---------------- Aporte Carlos ----------------
     # Operadores bit a bit
-    'BIT_AND',         # &
-    'BIT_OR',          # |
-    'BIT_XOR',         # ^
-    'BIT_NOT',         # ~
+    'BIT_Y',         # &
+    'BIT_O',          # |
+    'BIT_XO',         # ^
+    'BIT_NO',         # ~
     'DESPLAZAR_IZQ',   # <<
     'DESPLAZAR_DER',   # >>
 
@@ -48,9 +48,9 @@ tokens = [
     'POR_IGUAL',       # *=
     'DIV_IGUAL',       # /=
     'MOD_IGUAL',       # %=
-    'AND_IGUAL',       # &=
-    'OR_IGUAL',        # |=
-    'XOR_IGUAL',       # ^=
+    'Y_IGUAL',       # &=
+    'O_IGUAL',        # |=
+    'XO_IGUAL',       # ^=
     'DESP_IZQ_IGUAL',  # <<=
     'DESP_DER_IGUAL',  # >>=
     # ---------------- Fin Carlos ----------------
@@ -108,9 +108,9 @@ t_MAYOR_IGUAL  = r'>='
 t_MENOR_IGUAL  = r'<='
 t_IGUAL        = r'=='
 t_DIFERENTE    = r'!='
-t_AND          = r'&&'
-t_OR           = r'\|\|'
-t_NOT          = r'!'
+t_Y          = r'&&'
+t_O           = r'\|\|'
+t_NO          = r'!'
 t_CORCHETE_IZQ = r'\['
 t_CORCHETE_DER = r'\]'
 t_FLECHA       = r'->'
@@ -134,10 +134,10 @@ t_DESP_DER_IGUAL = r'>>='
 # Operadores bit a bit
 t_DESPLAZAR_IZQ  = r'<<'
 t_DESPLAZAR_DER  = r'>>'
-t_BIT_AND        = r'&'
-t_BIT_OR         = r'\|'
-t_BIT_XOR        = r'\^'
-t_BIT_NOT        = r'~'
+t_BIT_Y        = r'&'
+t_BIT_O         = r'\|'
+t_BIT_XO        = r'\^'
+t_BIT_NO        = r'~'
 # -------- Fin Carlos --------
 
 
