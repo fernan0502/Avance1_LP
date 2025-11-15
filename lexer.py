@@ -65,8 +65,12 @@ reservadas = {
     'if': 'SI', 'else': 'SINO', 'for': 'POR', 'while': 'MIENTRAS',
     'fn': 'FUNCION', 'return': 'RETORNO', 'let': 'VARIABLE',
     'const': 'CONSTANTE', 'true': 'VERDAD', 'false': 'FALSO',
-    'break': 'QUIEBRE', 'print': 'IMPRIMIR', 'input': 'ENTRADA',
-    'continue': 'CONTINUAR', 'println': 'IMPRIMIRLN',
+    'break': 'QUIEBRE', 'print!': 'IMPRIMIR', 'input': 'ENTRADA',
+    'continue': 'CONTINUAR', 'println!': 'IMPRIMIRLN', 'new': 'NUEVO',
+    'delete': 'ELIMINAR', 'switch': 'SWITCH', 'case': 'CASO',
+    'default': 'DEFECTO', 'Vec': 'VECTOR', 'vec!': 'VECTOR_MACRO',
+    
+
      # ---------------- Fin Fernando, Sebastian -------------------
     
      # ---------------- Aporte Carlos ----------------
@@ -77,6 +81,12 @@ reservadas = {
     'where': 'DONDE', 'move': 'MOVER', 'ref': 'REFERENCIA', 'type': 'TIPO',
     'crate': 'PAQUETE', 'unsafe': 'INSEGURO', 'async': 'ASINCRONO', 'await': 'ESPERAR',
     'dyn': 'DINAMICO', 'class': 'CLASE',
+    
+    #tipo de datos
+    'i8': 'I8', 'i16': 'I16', 'i32': 'I32', 'i64': 'I64', 'i128': 'I128',
+    'u8': 'U8', 'u16': 'U16', 'u32': 'U32', 'u64': 'U64', 'u128': 'U128',
+    'f32': 'F32', 'f64': 'F64', 'bool': 'BOOLEANO_TIPO', 'char': 'CARACTER_TIPO',
+    'str': 'CADENA_TIPO', 'usize': 'UTIPO', 'isize': 'ITIPO',
     }
     # ---------------- Fin Carlos ----------------
 
@@ -122,6 +132,15 @@ t_RANGO        = r'\.\.'
 t_RANGO_INCLUIDO = r'\.\.='
 
 #--------- Fin Sebastian --------
+
+# Reglas especiales para macros de impresión (antes de t_IDENTIFICADOR y t_NO)
+def t_IMPRIMIRLN(t):
+    r'println!'
+    return t
+
+def t_IMPRIMIR(t):
+    r'print!'
+    return t
 
 # -------- Aporte Carlos --------
 # Asignación compuesta (más largos primero)
@@ -180,6 +199,8 @@ t_ignore = ' \t'
 def t_nueva_linea(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
+
+
 
 def t_error(t):
     mensaje = f"❌ Error léxico: carácter no reconocido '{t.value[0]}' en línea {t.lineno}"
