@@ -19,7 +19,7 @@ import sys
 # ------------------------------------------------------------
 tokens = [
     # ---------------- Aporte Fernando, Sebastian ----------------
-    'IDENTIFICADOR', 'NUMERO', 'CADENA',
+    'IDENTIFICADOR', 'ENTERO', 'CADENA', 'FLOTANTE',
     'ASIGNACION', 'SUMA', 'RESTA', 'MULT', 'DIV',
     'PAREN_IZQ', 'PAREN_DER', 'LLAVE_IZQ', 'LLAVE_DER',
     'PUNTOCOMA', 'PUNTO', 'MODULO', 'POTENCIA',
@@ -31,6 +31,7 @@ tokens = [
     'Y', 'O', 'NO', 'FLECHA',
     #Otros simbolos
     'CORCHETE_IZQ', 'CORCHETE_DER',  'FLECHA', 'INTERROGACION',
+    'RANGO', 'RANGO_INCLUIDO',
 
     # ---------------- Fin Fernando, Sebastian -------------------
 
@@ -116,6 +117,8 @@ t_CORCHETE_IZQ = r'\['
 t_CORCHETE_DER = r'\]'
 t_FLECHA       = r'->'
 t_INTERROGACION= r'\?'
+t_RANGO        = r'\.\.'
+t_RANGO_INCLUIDO = r'\.\.='
 
 #--------- Fin Sebastian --------
 
@@ -157,10 +160,14 @@ def t_IDENTIFICADOR(t):
     r'[a-zA-ZáéíóúÁÉÍÓÚñÑ_][a-zA-Z0-9áéíóúÁÉÍÓÚñÑ_]*'
     t.type = reservadas.get(t.value, 'IDENTIFICADOR')
     return t
+def t_FLOTANTE(t):
+    r'\d+\.\d+'
+    t.value = float(t.value)
+    return t
 
-def t_NUMERO(t):
-    r'\d+(\.\d+)?'
-    t.value = float(t.value) if '.' in t.value else int(t.value)
+def t_ENTERO(t):
+    r'\d+'
+    t.value = int(t.value)
     return t
 
 def t_CADENA(t):
