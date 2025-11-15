@@ -22,13 +22,13 @@ tokens = [
     'IDENTIFICADOR', 'ENTERO', 'CADENA', 'FLOTANTE',
     'ASIGNACION', 'SUMA', 'RESTA', 'MULT', 'DIV',
     'PAREN_IZQ', 'PAREN_DER', 'LLAVE_IZQ', 'LLAVE_DER',
-    'PUNTOCOMA', 'PUNTO', 'MODULO', 'POTENCIA',
+    'PUNTOCOMA', 'PUNTO', 'POTENCIA',
     'MENOR', 'COMA', 'DOSPUNTOS', 'CARACTER', 'BOOLEANO',
     # Comentarios
     'COMENTARIO_LINEA', 'COMENTARIO_BLOQUE',
     #Operadores Relacionales y Lógicos
     'MAYOR', 'MAYOR_IGUAL', 'MENOR_IGUAL', 'IGUAL', 'DIFERENTE',
-    'Y', 'O', 'NO', 'FLECHA',
+    'Y', 'O', 'NO', 
     #Otros simbolos
     'CORCHETE_IZQ', 'CORCHETE_DER',  'FLECHA', 'INTERROGACION',
     'RANGO', 'RANGO_INCLUIDO',
@@ -61,22 +61,21 @@ tokens = [
     
 reservadas = {
     # -------- Aporte Fernando, Sebastian --------
-    'if': 'IF', 'else': 'ELSE', 'for': 'FOR', 'while': 'WHILE',
-    'fn': 'FUNCTION', 'return': 'RETURN', 'let': 'VAR',
-    'const': 'CONST', 'true': 'TRUE', 'false': 'FALSE',
-    'break': 'BREAK', 'print': 'PRINT', 'input': 'INPUT', 
-    'continue': 'CONTINUE', 'println': 'PRINTLN', 
+    'if': 'SI', 'else': 'SINO', 'for': 'POR', 'while': 'MIENTRAS',
+    'fn': 'FUNCION', 'return': 'RETORNO', 'let': 'VARIABLE',
+    'const': 'CONSTANTE', 'true': 'VERDAD', 'false': 'FALSO',
+    'break': 'QUIEBRE', 'print': 'IMPRIMIR', 'input': 'ENTRADA',
+    'continue': 'CONTINUAR', 'println': 'IMPRIMIRLN',
      # ---------------- Fin Fernando, Sebastian -------------------
     
      # ---------------- Aporte Carlos ----------------
-    'let': 'LET', 'mut': 'MUT', 'fn': 'FN', 'struct': 'STRUCT', 'enum': 'ENUM',
-    'impl': 'IMPL', 'trait': 'TRAIT', 'mod': 'MOD', 'use': 'USE',
-    'pub': 'PUB', 'self': 'SELF', 'super': 'SUPER', 'as': 'AS', 'const': 'CONST',
-    'static': 'STATIC', 'match': 'MATCH', 'loop': 'LOOP', 'in': 'IN',
-    'where': 'WHERE', 'move': 'MOVE', 'ref': 'REF', 'type': 'TYPE',
-    'crate': 'CRATE', 'unsafe': 'UNSAFE', 'async': 'ASYNC', 'await': 'AWAIT',
-    'dyn': 'DYN', 'self': 'SELF', 'super': 'SUPER', 'as': 'AS', 'class': 'CLASS',
-    'struct': 'STRUCT',
+    'mut': 'MUTABLE', 'struct': 'ESTRUCTURA', 'enum': 'ENUMERADO',
+    'impl': 'IMPLEMENTACION', 'trait': 'RASGO', 'mod': 'MODULO', 'use': 'USO',
+    'pub': 'PUBLICO', 'self': 'MISMO', 'super': 'SUPER', 'as': 'COMO',
+    'static': 'ESTATICO', 'match': 'COINCIDIR', 'loop': 'LAZO', 'in': 'EN',
+    'where': 'DONDE', 'move': 'MOVER', 'ref': 'REFERENCIA', 'type': 'TIPO',
+    'crate': 'PAQUETE', 'unsafe': 'INSEGURO', 'async': 'ASINCRONO', 'await': 'ESPERAR',
+    'dyn': 'DINAMICO', 'class': 'CLASE',
     }
     # ---------------- Fin Carlos ----------------
 
